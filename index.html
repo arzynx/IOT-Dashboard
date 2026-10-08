@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A friendly introduction to IoT, embedded systems, and sensors from the College IoT & Embedded Systems Club.">
+  <title>College IoT &amp; Embedded Systems Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header id="top" class="site-header">
+    <div class="content-wrapper header-inner">
+      <div class="club-intro">
+        <p class="eyebrow">Learn by building</p>
+        <h1>IoT &amp; Embedded Systems Club</h1>
+        <p class="tagline">Small devices, useful ideas, and a welcoming place to start.</p>
+      </div>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+        <span aria-hidden="true">🌙</span> Dark
+      </button>
+    </div>
+    <nav class="content-wrapper" aria-label="Main navigation">
+      <a href="#intro">Start here</a>
+      <a href="#sensors">Meet the sensors</a>
+      <a href="#simulator">Try a reading</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-heading">
+      <canvas id="constellation-canvas" aria-hidden="true"></canvas>
+      <div class="iot-map" aria-hidden="true">
+        <div class="network-node internet-core">
+          <span class="internet-mark"><svg viewBox="0 0 80 80" focusable="false"><circle cx="40" cy="40" r="25"></circle><path d="M15 40h50M40 15c9 9 13 19 13 25s-4 16-13 25c-9-9-13-19-13-25s4-16 13-25M19 27c12 6 30 6 42 0M19 53c12-6 30-6 42 0"></path></svg></span>
+          <span>Internet</span>
+        </div>
+        <div class="network-node device-node device-light"><span class="map-icon"><svg viewBox="0 0 48 48" focusable="false"><path d="M16 27a11 11 0 1 1 16 0c-2 2-3 4-3 7H19c0-3-1-5-3-7ZM19 39h10M21 43h6"></path></svg></span><small>Smart light</small></div>
+        <div class="network-node device-node device-lock"><span class="map-icon"><svg viewBox="0 0 48 48" focusable="false"><rect x="12" y="21" width="24" height="19" rx="3"></rect><path d="M17 21v-5a7 7 0 0 1 14 0v5M24 28v6"></path></svg></span><small>Smart lock</small></div>
+        <div class="network-node device-node device-camera"><span class="map-icon"><svg viewBox="0 0 48 48" focusable="false"><rect x="7" y="16" width="27" height="20" rx="3"></rect><path d="m34 22 8-5v18l-8-5z"></path><circle cx="21" cy="26" r="6"></circle></svg></span><small>Camera</small></div>
+        <div class="network-node device-node device-speaker"><span class="map-icon"><svg viewBox="0 0 48 48" focusable="false"><path d="M8 28h8l10 8V12L16 20H8zM32 20c3 3 3 7 0 10M37 15c6 6 6 12 0 18"></path></svg></span><small>Speaker</small></div>
+        <div class="network-node device-node device-tv"><span class="map-icon"><svg viewBox="0 0 48 48" focusable="false"><rect x="6" y="10" width="36" height="25" rx="3"></rect><path d="M16 42h16M24 35v7M18 5l6 5 6-5"></path></svg></span><small>Smart TV</small></div>
+        <div class="network-node device-node device-ac"><span class="map-icon"><svg viewBox="0 0 48 48" focusable="false"><path d="M24 6v36M8 15l32 18M8 33l32-18M16 8l16 32M32 8 16 40"></path><circle cx="24" cy="24" r="4"></circle></svg></span><small>Smart AC</small></div>
+      </div>
+      <div class="content-wrapper hero-content reveal">
+        <p class="hero-kicker"><span aria-hidden="true"></span> Club signal online</p>
+        <h2 id="hero-heading">Everything<br><em>connects.</em></h2>
+        <p class="hero-copy">The internet sits at the centre. Your lights, locks, and sensors pass useful signals through it&mdash;and you stay in control.</p>
+        <div class="hero-actions">
+          <a class="hero-button" href="#sensors">Explore sensors <span aria-hidden="true">↘</span></a>
+          <a class="text-button" href="#simulator">Run a live demo <span aria-hidden="true">→</span></a>
+        </div>
+        <ul class="hero-stats" aria-label="Club highlights">
+          <li><strong>06</strong><span>core sensors</span></li>
+          <li><strong>01</strong><span>live experiment</span></li>
+          <li><strong>∞</strong><span>ideas to build</span></li>
+        </ul>
+      </div>
+      <p class="orbit-label" aria-hidden="true">SENSE · THINK · CONNECT · BUILD</p>
+    </section>
+
+    <section id="intro" class="content-wrapper intro-section reveal">
+      <p class="section-kicker">01 / Core concepts</p>
+      <div class="concept-grid">
+        <div class="concept-card concept-iot">
+          <span class="concept-number" aria-hidden="true">01</span>
+          <h2>What is IoT?</h2>
+          <p>IoT means Internet of Things: everyday objects that can sense what is happening, send information online, and sometimes be controlled from far away. Think of it like giving ordinary things a way to notice, speak, and listen through the internet.</p>
+          <p>That can make little daily tasks easier, safer, or more efficient.</p>
+          <ul class="example-list">
+            <li>Smart home lights you control from your phone</li>
+            <li>A fitness band that tracks your steps</li>
+            <li>A smart water meter that reports usage</li>
+            <li>Automatic street lights that switch on at dusk</li>
+            <li>A car GPS tracker that shares its location</li>
+          </ul>
+        </div>
+
+        <div class="concept-card concept-embedded">
+          <span class="concept-number" aria-hidden="true">02</span>
+          <h2>What are Embedded Systems?</h2>
+          <p>An embedded system is a tiny computer built into a device to do one specific job. A microwave timer, a washing machine cycle, and an Arduino or ESP32 guiding a robot all use embedded systems.</p>
+          <p>Here is the key difference: embedded systems are the device&rsquo;s body and brain; IoT is what happens when that brain connects to the internet. A device can be embedded without being online, but connecting it can turn it into an IoT device.</p>
+        </div>
+
+        <div class="concept-card concept-flow">
+          <span class="concept-number" aria-hidden="true">03</span>
+          <h2>How It All Works</h2>
+          <ol class="flow-list">
+            <li><strong>Sensor collects data</strong> such as temperature, light, or movement.</li>
+            <li><strong>Microcontroller processes it</strong> and decides what the data means.</li>
+            <li><strong>Data travels over Wi-Fi or a network</strong> when it needs to go somewhere else.</li>
+            <li><strong>The cloud stores or analyses it</strong> so it can be useful over time.</li>
+            <li><strong>You see it in an app or an action happens</strong>, such as a light switching on.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="sensors" class="content-wrapper sensors-section reveal">
+      <p class="section-kicker">02 / Hardware library</p>
+      <h2>Meet the Sensors</h2>
+      <p class="section-lead">Sensors are the parts that help a device notice the world around it.</p>
+      <div class="sensor-grid" aria-label="Common sensor types">
+        <article class="sensor-card reveal">
+          <span class="sensor-visual" aria-hidden="true"><svg viewBox="0 0 80 80" focusable="false"><rect x="27" y="10" width="26" height="45" rx="5"></rect><path d="M40 22v34"></path><circle cx="40" cy="62" r="10"></circle><path d="M35 18h10M35 29h10"></path></svg></span>
+          <h3>Temperature <span class="model-name">(DHT11 / LM35)</span></h3>
+          <p>Measures the heat in the surrounding air.</p>
+          <p><strong>Used in:</strong> weather stations and smart ACs.</p>
+        </article>
+        <article class="sensor-card reveal">
+          <span class="sensor-visual" aria-hidden="true"><svg viewBox="0 0 80 80" focusable="false"><circle cx="40" cy="35" r="19"></circle><path d="m25 35 7-7 5 9 7-9 8 7M34 54l-2 13h16l-2-13M30 70h20"></path><path d="m16 35-7 0m62 0-7 0M22 17l-5-5m41 5 5-5"></path></svg></span>
+          <h3>LDR <span class="model-name">(Light Dependent Resistor)</span></h3>
+          <p>Measures how bright or dark a place is.</p>
+          <p><strong>Used in:</strong> automatic street lights and phone auto-brightness.</p>
+        </article>
+        <article class="sensor-card reveal">
+          <span class="sensor-visual" aria-hidden="true"><svg viewBox="0 0 80 80" focusable="false"><rect x="10" y="24" width="60" height="34" rx="5"></rect><circle cx="28" cy="41" r="10"></circle><circle cx="52" cy="41" r="10"></circle><path d="M16 30h7m41 0h-7M18 63v7m10-7v7m14-7v7m10-7v7"></path></svg></span>
+          <h3>Ultrasonic <span class="model-name">(HC-SR04)</span></h3>
+          <p>Measures distance by sending out sound waves.</p>
+          <p><strong>Used in:</strong> car parking sensors and obstacle-avoiding robots.</p>
+        </article>
+        <article class="sensor-card reveal">
+          <span class="sensor-visual" aria-hidden="true"><svg viewBox="0 0 80 80" focusable="false"><path d="M19 58V34c0-15 9-24 21-24s21 9 21 24v24Z"></path><path d="M25 58h30v10H25z"></path><path d="M30 34c2-8 7-12 10-12s8 4 10 12"></path></svg></span>
+          <h3>PIR Motion</h3>
+          <p>Notices movement from the heat given off by bodies.</p>
+          <p><strong>Used in:</strong> security alarms and automatic doors.</p>
+        </article>
+        <article class="sensor-card reveal">
+          <span class="sensor-visual" aria-hidden="true"><svg viewBox="0 0 80 80" focusable="false"><rect x="22" y="10" width="36" height="57" rx="5"></rect><path d="M30 21h20M30 30h20M30 39h20M30 48h20M30 57h20"></path><path d="M35 70v5m10-5v5"></path></svg></span>
+          <h3>Humidity <span class="model-name">(DHT22)</span></h3>
+          <p>Measures how much moisture is in the air.</p>
+          <p><strong>Used in:</strong> greenhouses and smart farming.</p>
+        </article>
+        <article class="sensor-card reveal">
+          <span class="sensor-visual" aria-hidden="true"><svg viewBox="0 0 80 80" focusable="false"><circle cx="40" cy="34" r="19"></circle><circle cx="40" cy="34" r="12"></circle><path d="M28 54h24v12H28zM24 69h32M35 72v4m10-4v4"></path></svg></span>
+          <h3>Gas / Smoke <span class="model-name">(MQ-2)</span></h3>
+          <p>Measures the amount of gas or smoke in the air.</p>
+          <p><strong>Used in:</strong> fire alarms and kitchen leak detectors.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="simulator" class="content-wrapper simulator-section reveal">
+      <p class="section-kicker">03 / Live experiment</p>
+      <h2>Try the Temperature Sensor</h2>
+      <p class="section-lead">This small demo pretends to take a reading from a temperature sensor.</p>
+      <div class="simulator-panel" aria-label="Temperature sensor simulator">
+        <div id="reading-display" class="reading-display" aria-live="polite" aria-atomic="true">
+          <p class="temperature-value">-- &deg;C</p>
+          <p class="reading-status">Press the button to take a reading.</p>
+          <p class="timestamp">No readings yet.</p>
+        </div>
+        <div class="simulator-controls" aria-label="Simulator controls">
+          <button id="simulate-button" class="primary-button" type="button">Simulate Reading</button>
+          <button id="live-mode-button" class="secondary-button" type="button" aria-pressed="false">Start Live Mode</button>
+        </div>
+        <div class="history-section" aria-labelledby="history-heading">
+          <h3 id="history-heading">Recent readings</h3>
+          <ul id="reading-history" class="reading-history">
+            <li>No readings saved yet.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="content-wrapper">
+      <p><strong>IoT &amp; Embedded Systems Club</strong> &middot; <span id="current-year">2026</span></p>
+      <p>Bring your curiosity to the next club session&mdash;we&rsquo;ll build something together.</p>
+      <a class="footer-link" href="#top">Return to signal ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
